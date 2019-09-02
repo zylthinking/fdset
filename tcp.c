@@ -172,8 +172,3 @@ static void init()
     };
     implement_register(&imp2);
 }
-
-void init_implement()
-{
-    init();
-}
