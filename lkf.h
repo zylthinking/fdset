@@ -87,7 +87,7 @@ static inline struct lkf_node* lkf_node_get(struct lkf_list* list)
 
     struct lkf_node** last = __sync_lock_test_and_set(&(list->tail), &(list->root.next));
     *last = ptr;
-    return *last;
+    return (struct lkf_node *) last;
 }
 
 static inline struct lkf_node* lkf_node_next(struct lkf_node* node)
@@ -130,7 +130,7 @@ static inline struct lkf_node* lkf_node_get_wait(struct lkf_list* list)
 
     struct lkf_node** last = __sync_lock_test_and_set(&(list->tail), &(list->root.next));
     *last = ptr;
-    return *last;
+    return (struct lkf_node *) last;
 }
 #endif
 
